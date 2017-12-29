@@ -25,7 +25,7 @@ public class JPAConfig {
         emf.setPackagesToScan("io.egen.entity");
 
         Properties properties = new Properties();
-        properties.put("hibernate.hbm2ddl.auto","create");
+        properties.put("hibernate.hbm2ddl.auto","validate");
         properties.put("hibernate.show_sql","true");
         emf.setJpaProperties(properties);
         return emf;
