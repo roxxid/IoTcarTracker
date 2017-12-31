@@ -14,6 +14,7 @@ public class ReadingServiceImplementation implements ReadingService {
     @Autowired
     ReadingsRepository readingsRepository;
 
+    @Transactional
     public List<Readings> findAllVin(String vin) {
         return readingsRepository.findAllVin(vin);
     }

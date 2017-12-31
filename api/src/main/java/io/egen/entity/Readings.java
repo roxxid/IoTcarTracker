@@ -1,7 +1,6 @@
 package io.egen.entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.UUID;
 
 @Entity

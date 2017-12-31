@@ -1,6 +1,8 @@
 package io.egen.service;
 
 import io.egen.entity.Vehicles;
+import io.egen.exceptions.BadRequestException;
+import io.egen.exceptions.ResourceNotFoundException;
 import io.egen.repository.VehiclesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +23,7 @@ public class VehicleServiceImplementation implements VehicleService {
     public Vehicles findByVin(String vin) {
         Vehicles existing = repository.findByVin(vin);
         if(existing == null){
-            //handle exceptions
+            throw new ResourceNotFoundException("Vehicle with vin: "+ vin +" does'nt exist.");
         }
         return existing;
     }
