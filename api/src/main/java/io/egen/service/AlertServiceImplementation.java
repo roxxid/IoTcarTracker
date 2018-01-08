@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -79,5 +80,15 @@ public class AlertServiceImplementation implements AlertService {
             return a.generateAlert(alerts);
         }
         return null;
+    }
+
+    @Transactional
+    public List<Alerts> findAllAlertsByVin(String vin) {
+        return a.findAllAlertsByVin(vin);
+    }
+
+    @Transactional
+    public List<Alerts> findHighAlerts() {
+        return a.findHighAlerts();
     }
 }

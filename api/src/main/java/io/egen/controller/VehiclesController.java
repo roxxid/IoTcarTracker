@@ -39,17 +39,6 @@ public class VehiclesController {
         return vehicles;
     }
 
-
-
-
-
-
-
-
-
-
-
-
 }
 
 /*  "vin": "1HGCR2F3XFA027534",

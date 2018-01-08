@@ -35,6 +35,4 @@ public class ReadingsController {
         return readingService.findAllVin(vin);
     }
 
-
-
 }

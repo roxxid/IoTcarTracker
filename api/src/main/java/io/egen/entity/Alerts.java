@@ -2,8 +2,19 @@ package io.egen.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name="Alerts.findHighAlerts()",
+                query="SELECT a FROM Alerts a WHERE a.alertPriority='HIGH'"),
+        @NamedQuery(name="Alerts.findAllAlertsByVin()",
+                query = "SELECT a FROM Alerts a WHERE a.vin=:paramVin")
+})
+
+//@NamedQueries({ @NamedQuery(name = "Vehicles.findAll()", query = "SELECT v from Vehicles v" ),
+//        @NamedQuery(name = "Vehicles.findByVin()", query = "SELECT v from Vehicles v WHERE v.vin = :paramVin")
 public class Alerts {
 
     @Id
