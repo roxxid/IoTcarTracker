@@ -1,3 +1,22 @@
-<p>
-  hight-alerts works!
-</p>
+<h1 class="display-3">Alerts</h1>
+
+<div class="jumbotron">
+  <h1>High Alerts</h1>
+  <table class="table table-danger">
+    <thead>
+    <tr>
+      <th>Vin</th>
+      <th>Message</th>
+      <th>Event Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let alert of alerts">
+      <td>{{alert.vin}}</td>
+      <td>{{alert.alertMessage}}</td>
+      <td>{{alert.timestamp}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

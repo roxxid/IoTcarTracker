@@ -6,18 +6,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
-export class VehiclesService {
-
-  private readonly URL = 'http://localhost:8080/tracker/vehicles';
-
+export class AlertsService {
+  private readonly URL = 'http://localhost:8080/tracker/alerts/high';
   constructor(
     private httpClient: HttpClient
   ) {}
-  public getVehicles(): Observable<Array<any>> {
+  public getHighAlerts(): Observable<Array<any>> {
     return this.httpClient.get<Array<any>>(this.URL);
-  }
-  public getVehiclesByVin(vin): Observable<any> {
-    return this.httpClient.get<any>(`${this.URL}/${vin}`);
   }
 
 }

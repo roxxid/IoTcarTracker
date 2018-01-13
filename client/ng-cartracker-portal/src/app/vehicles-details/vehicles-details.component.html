@@ -1,3 +1,24 @@
-<p>
-  vehicles-details works!
-</p>
+<div class="card text-white bg-success mb-3" style="max-width: 25rem;">
+  <div class="card-header">{{vehicle.make}} {{vehicle.model}}</div>
+  <div class="card-body">
+    <h4 class="card-title">{{vehicle.year}}</h4>
+    <p class="card-text">Last Service : {{vehicle.lastServiceDate}}</p>
+    <p class="card-text">Max RPM : {{vehicle.redlineRpm}}</p>
+    <p class="card-text">Max Fuel Capacity : {{vehicle.maxFuelVolume}}</p>
+  </div>
+</div>
+
+<div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+  <div class="card-header">Latest Reading</div>
+  <div class="card-body">
+    <h4 class="card-title">SAMPLE</h4>
+    <p class="card-text">SAMPLE READING</p>
+  </div>
+</div>
+
+{{readings}}
+
+<router-outlet></router-outlet>
+
+
+<a [routerLink]="['/vehicles']" class="btn btn-primary">Go Back</a>
