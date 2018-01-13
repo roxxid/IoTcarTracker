@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { NgArrayPipesModule, NgStringPipesModule } from 'angular-pipes';
 import { AppComponent } from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import { VehiclesListComponent } from './vehicles-list/vehicles-list.component';
@@ -14,6 +14,7 @@ import {VehiclesService} from './vehicles-service/vehicles.service';
 import {HttpClientModule} from '@angular/common/http';
 import {AlertsService} from './alerts-service/alerts.service';
 import {ReadingsService} from './readings-service/readings.service';
+import {AgmCoreModule} from '@agm/core';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomePageComponent},
@@ -40,6 +41,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyDX_w7qbmz-HfkvFNo3SiQQWKAphTbMtqY'}),
+    NgArrayPipesModule,
+    NgStringPipesModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [VehiclesService, AlertsService, ReadingsService],

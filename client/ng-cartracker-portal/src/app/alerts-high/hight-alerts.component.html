@@ -1,5 +1,4 @@
 <h1 class="display-3">Alerts</h1>
-
 <div class="jumbotron">
   <h1>High Alerts</h1>
   <table class="table table-danger">
@@ -14,9 +13,8 @@
     <tr *ngFor="let alert of alerts">
       <td>{{alert.vin}}</td>
       <td>{{alert.alertMessage}}</td>
-      <td>{{alert.timestamp}}</td>
+      <td>{{alert.timestamp | date}}</td>
     </tr>
     </tbody>
   </table>
-
 </div>

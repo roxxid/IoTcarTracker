@@ -1,24 +1,39 @@
+<div class="row">
+<div class="col-sm-4">
 <div class="card text-white bg-success mb-3" style="max-width: 25rem;">
   <div class="card-header">{{vehicle.make}} {{vehicle.model}}</div>
   <div class="card-body">
     <h4 class="card-title">{{vehicle.year}}</h4>
-    <p class="card-text">Last Service : {{vehicle.lastServiceDate}}</p>
+    <p class="card-text">Last Service : {{vehicle.lastServiceDate | date}}</p>
     <p class="card-text">Max RPM : {{vehicle.redlineRpm}}</p>
     <p class="card-text">Max Fuel Capacity : {{vehicle.maxFuelVolume}}</p>
   </div>
 </div>
+</div>
 
-<div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
-  <div class="card-header">Latest Reading</div>
+  <div class="col-sm-8" style="padding-left: 10px;">
+<div class="card text-white bg-info mb-3" style="max-width: 40rem;">
+  <div class="card-header">LATEST READING ON - {{latestReading.timestamp | date: 'medium' | upperfirst}}</div>
   <div class="card-body">
-    <h4 class="card-title">SAMPLE</h4>
-    <p class="card-text">SAMPLE READING</p>
+    <h4 class="card-title">Current Speed: {{latestReading.speed}} mph</h4>
+    <h4 class="card-title">Fuel Tank: {{latestReading.fuelVolume}} gal</h4>
+    <p class="card-text">Current Engine RPM: {{latestReading.engineRpm}} rpm </p>
+    <p class="card-text">Current Engine HP: {{latestReading.engineHp}} hp</p>
+  </div>
+</div>
   </div>
 </div>
 
-{{readings}}
+<div class="card text-white bg-warning mb-3">
+  <div class="card-header">LOCATION</div>
+  <div class="card-body">
+    <agm-map [latitude]="lat" [longitude]="lon">
+      <agm-marker [latitude]="lat" [longitude]="lon"></agm-marker>
+    </agm-map>
+  </div>
+</div>
 
-<router-outlet></router-outlet>
-
+<p>{{lat}},{{lon}}</p>
+<p>AIzaSyDX_w7qbmz-HfkvFNo3SiQQWKAphTbMtqY</p>
 
 <a [routerLink]="['/vehicles']" class="btn btn-primary">Go Back</a>
