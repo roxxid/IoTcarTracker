@@ -1,3 +1,19 @@
-<p>
-  vehicles-history works!
-</p>
+
+<h2>Historical Alerts</h2>
+
+<button class="btn btn-outline-warning" *ngFor="let vehicle of vehiclesList">
+  <span [routerLink]="['/history/alerts', vehicle.vin ]">
+  {{vehicle.make}} {{vehicle.model}}</span>
+</button>
+
+<hr>
+<h2>Historical Readings</h2>
+
+<button class="btn btn-outline-info" *ngFor="let vehicle of vehiclesList">
+  <span [routerLink]="['/history/readings', vehicle.vin ]">
+    {{vehicle.make}} {{vehicle.model}}</span>
+</button>
+<!--
+<app-alerts-history></app-alerts-history>
+<app-readings-history></app-readings-history>
+-->

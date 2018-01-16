@@ -17,6 +17,9 @@ public class AlertServiceImplementation implements AlertService {
     @Autowired
     AlertsRepository a;
 
+//    @Autowired
+//    private EmailService emailService;
+
     @Autowired
     VehiclesRepository repository;
 
@@ -30,6 +33,9 @@ public class AlertServiceImplementation implements AlertService {
         if(r.getEngineRpm()>repository.findByVin(vin).getRedlineRpm()) {
             alerts.setId(UUID.randomUUID().toString());
             alerts.setAlertPriority("HIGH");
+            //if(alerts.getAlertPriority() == "HIGH"){
+           //     emailService.sendEmailAlert();
+            //}
             alerts.setAlertMessage("Warning! Your vehicle's RPM exceeded the redline RPM. [Careful! Above redline, the engine will be in a situation where the pistons, valves, etc. may not be able to handle the stress of the RPMs.] ");
             return a.generateAlert(alerts);
         }

@@ -33,7 +33,53 @@
   </div>
 </div>
 
-<p>{{lat}},{{lon}}</p>
-<p>AIzaSyDX_w7qbmz-HfkvFNo3SiQQWKAphTbMtqY</p>
+<div class="row">
+  <div class="col-sm-5">
+    <div class="card bg-light mb-3" style="max-width: 30rem;">
+      <div class="card-header">ENGINE RPM</div>
+        <div class="card-body">
+          <div>
+            <canvas height="400px" width="400px" id="myChart1">{{ chart1 }}</canvas>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-sm-5">
+    <div class="card bg-light mb-3" style="max-width: 30rem;">
+      <div class="card-header">Engine HP</div>
+        <div class="card-body">
+          <div>
+          <canvas height="400px" width="400px" id="myChart3">{{ chart3 }}</canvas>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-5">
+    <div class="card bg-light mb-3" style="max-width: 30rem;">
+      <div class="card-header">SPEED</div>
+      <div class="card-body">
+        <div>
+          <canvas height="400px" width="400px" id="myChart4">{{ chart4 }}</canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-5">
+    <div class="card bg-light mb-3" style="max-width: 30rem;">
+      <div class="card-header">FUEL</div>
+      <div class="card-body">
+        <div>
+          <canvas height="400px" width="400px" id="myChart2">{{ chart2 }}</canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <a [routerLink]="['/vehicles']" class="btn btn-primary">Go Back</a>

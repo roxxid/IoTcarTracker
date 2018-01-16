@@ -7,12 +7,17 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class AlertsService {
-  private readonly URL = 'http://localhost:8080/tracker/alerts/high';
+  private readonly URL = 'http://localhost:8080/tracker/alerts/';
   constructor(
     private httpClient: HttpClient
   ) {}
   public getHighAlerts(): Observable<Array<any>> {
-    return this.httpClient.get<Array<any>>(this.URL);
+    return this.httpClient.get<Array<any>>(`${this.URL}/high`);
+  }
+
+  public getAlertsByVin(vin): Observable<Array<any>> {
+    return this.httpClient.get<Array<any>>(`${this.URL}/${vin}`)
+      .map(alerts => alerts);
   }
 
 }

@@ -9,14 +9,16 @@ import {VehiclesService} from '../vehicles-service/vehicles.service';
 export class VehiclesListComponent implements OnInit {
   vehicles;
   constructor(private vehiclesService: VehiclesService) {
-    vehiclesService.getVehicles()
+  }
+
+  ngOnInit() {
+
+    this.vehiclesService.getVehicles()
       .subscribe(
         vehicles => this.vehicles = vehicles,
         error => console.log(error)
       );
-  }
 
-  ngOnInit() {
   }
 
 }

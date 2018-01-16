@@ -2,6 +2,7 @@ package io.egen.controller;
 
 import io.egen.entity.Alerts;
 import io.egen.service.AlertService;
+import io.egen.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,9 @@ public class AlertsController {
 
     @Autowired
     AlertService as;
+
+    @Autowired
+    EmailService emailService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     @CrossOrigin

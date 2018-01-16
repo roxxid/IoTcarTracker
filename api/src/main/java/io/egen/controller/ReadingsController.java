@@ -3,6 +3,7 @@ package io.egen.controller;
 
 import io.egen.entity.Readings;
 import io.egen.service.AlertService;
+import io.egen.service.EmailService;
 import io.egen.service.ReadingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

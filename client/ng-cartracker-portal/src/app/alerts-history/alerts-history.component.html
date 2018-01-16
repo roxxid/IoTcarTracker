@@ -1,3 +1,18 @@
-<p>
-  alerts-history works!
-</p>
+<a [routerLink]="['/history']" class="btn btn-primary">Go Back</a><br><br>
+<h3>{{vehicleVin.make | upperfirst}} {{vehicleVin.model | upperfirst}} Alerts</h3>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Time</th>
+    <th>Priority</th>
+    <th>Message</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let alert of alertList">
+    <td>{{alert.timestamp | date: 'medium'}}</td>
+    <td>{{alert.alertPriority}}</td>
+    <td>{{alert.alertMessage}}</td>
+  </tr>
+  </tbody>
+</table>

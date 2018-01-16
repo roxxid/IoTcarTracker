@@ -1,26 +1,26 @@
 import {Component, OnInit} from '@angular/core';
-import {AlertsService} from '../alerts-service/alerts.service';
 import {ActivatedRoute} from '@angular/router';
 import {VehiclesService} from '../vehicles-service/vehicles.service';
+import {ReadingsService} from '../readings-service/readings.service';
 
 @Component({
-  selector: 'app-alerts-history',
-  templateUrl: './alerts-history.component.html',
-  styleUrls: ['./alerts-history.component.css']
+  selector: 'app-readings-history',
+  templateUrl: './readings-history.component.html',
+  styleUrls: ['./readings-history.component.css']
 })
-export class AlertsHistoryComponent implements OnInit {
+export class ReadingsHistoryComponent implements OnInit {
   vehicleVin;
-  alertList;
+  readingsList;
   currentVin;
-  constructor(private route: ActivatedRoute, private alertsService: AlertsService, private vehiclesService: VehiclesService) { }
+  constructor(private route: ActivatedRoute, private readingsService: ReadingsService, private vehiclesService: VehiclesService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.currentVin = params.vin;
-      this.alertsService.getAlertsByVin(params.vin)
+      this.readingsService.getReadingsByVin(params.vin)
         .subscribe(alerts => {
-              this.alertList = alerts;
-            });
+          this.readingsList = alerts;
+        });
       this.vehiclesService.getVehiclesByVin(params.vin)
         .subscribe(
           vehicles => this.vehicleVin = vehicles,
@@ -28,4 +28,5 @@ export class AlertsHistoryComponent implements OnInit {
         );
     });
   }
+
 }

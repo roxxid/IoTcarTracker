@@ -1,0 +1,30 @@
+<a [routerLink]="['/history']" class="btn btn-primary">Go Back</a><br><br>
+<h3>{{vehicleVin.make | upperfirst}} {{vehicleVin.model | upperfirst}} Readings</h3>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Time</th>
+    <th>Fuel</th>
+    <th>Speed</th>
+    <th>Engine HP</th>
+    <th>Lights On</th>
+    <th>Coolant Low</th>
+    <th>Engine RPM</th>
+    <th>Front Tires</th>
+    <th>Rear Tires</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let reading of readingsList">
+    <td>{{reading.timestamp | date: 'medium'}}</td>
+    <td>{{reading.fuelVolume}}</td>
+    <td>{{reading.speed}}</td>
+    <td>{{reading.engineHp}}</td>
+    <td>{{reading.checkEngineLightOn}}</td>
+    <td>{{reading.engineCoolantLow}}</td>
+    <td>{{reading.engineRpm}}</td>
+    <td>L: {{reading.tires.frontLeft}} R: {{reading.tires.frontRight}}</td>
+    <td>L: {{reading.tires.rearLeft}} R: {{reading.tires.rearRight}}</td>
+  </tr>
+  </tbody>
+</table>
