@@ -5,7 +5,6 @@ import io.egen.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 
@@ -38,7 +37,6 @@ public class VehiclesController {
         }
         return vehicles;
     }
-
 }
 
 /*  "vin": "1HGCR2F3XFA027534",
